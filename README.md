@@ -1,11 +1,6 @@
 # SafeHood
 
 
-Here is an **in-depth `README.md`** for your production-ready SafeHood app, built with the enterprise-grade tech stack you outlined. This README is designed to be both **developer-friendly** and **investor/stakeholder-facing**, clearly showing the technical integrity and real-world use case of the app.
-
----
-
-```markdown
 # 🛡️ SafeHood - Community Safety & GBV Response App
 
 **SafeHood** is an AI-augmented, community-driven mobile platform designed to **prevent, report, and respond** to incidents of crime, with a special focus on **gender-based violence (GBV)** in underserved townships and urban areas. This project uses a **scalable, production-ready tech stack** to support real-time safety alerts, live responder dispatch, secure data storage, and offline-first access to emergency services.
