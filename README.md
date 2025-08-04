@@ -1,14 +1,3 @@
-Here is your updated, **production-ready `README.md`** — aligned with your actual folder structure, current development progress, and the vision for **SafeHood** as a **GBV-first community safety platform**.
-
-It is designed to speak clearly to:
-
-* 🧑‍💻 **Developers** — with setup clarity and architecture
-* 🧠 **Stakeholders** — with vision and social mission
-* ❤️ **Contributors** — with space to support or extend it
-
----
-
-````md
 # 🛡️ SafeHood - Community Safety & GBV Response App
 
 **SafeHood** is an AI-ready, community-powered mobile and backend system that enables vulnerable people—especially **women and children in high-risk townships**—to **trigger silent alerts**, stream **real-time location**, and enable **community patrol response** using modern technology.
