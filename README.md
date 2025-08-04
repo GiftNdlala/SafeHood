@@ -1,148 +1,206 @@
-# SafeHood
+Here is your updated, **production-ready `README.md`** — aligned with your actual folder structure, current development progress, and the vision for **SafeHood** as a **GBV-first community safety platform**.
 
+It is designed to speak clearly to:
 
+* 🧑‍💻 **Developers** — with setup clarity and architecture
+* 🧠 **Stakeholders** — with vision and social mission
+* ❤️ **Contributors** — with space to support or extend it
+
+---
+
+````md
 # 🛡️ SafeHood - Community Safety & GBV Response App
 
-**SafeHood** is an AI-augmented, community-driven mobile platform designed to **prevent, report, and respond** to incidents of crime, with a special focus on **gender-based violence (GBV)** in underserved townships and urban areas. This project uses a **scalable, production-ready tech stack** to support real-time safety alerts, live responder dispatch, secure data storage, and offline-first access to emergency services.
+**SafeHood** is an AI-ready, community-powered mobile and backend system that enables vulnerable people—especially **women and children in high-risk townships**—to **trigger silent alerts**, stream **real-time location**, and enable **community patrol response** using modern technology.
+
+Built for speed, safety, and scale, SafeHood is focused on fighting **gender-based violence (GBV)** through digital tools that empower users in the most underserved and unsafe environments.
 
 ---
 
-## 📱 Mobile Use Case: Protecting Women & Children First
+## 📍 Use Case: Digital Safety for Vulnerable Communities
 
-In many townships, vulnerable individuals—especially women and children—face threats that go **unreported** due to fear, inaccessibility, or lack of responsive systems. SafeHood offers a **silent SOS trigger**, **geo-tagged alerting**, and **instant community response**, serving as a **digital shield** when human intervention fails.
-
----
-
-## 🧱 Tech Stack Overview
-
-| Layer | Technology | Purpose |
-|-------|------------|---------|
-| Frontend | React Native (Bare) | Cross-platform native app with access to device hardware (GPS, microphone, power button, etc.) |
-| Backend | Django + PostgreSQL | Secure, scalable API backend with audit logs, encryption, and admin tools |
-| Real-Time | Django Channels + Redis | WebSocket infrastructure for real-time alerts, patrol updates, and live tracking |
-| Media Storage | AWS S3 + Django-Storages | Stores voice recordings, photos, and incident evidence securely |
-| Offline Alerts | Twilio / Africa’s Talking | Ensures emergency alerts via SMS and voice even without internet |
-| DevOps | Docker, GitHub Actions, Render/AWS | CI/CD pipelines, scalable container-based deployment |
-| AI (Future Layer) | Python ML models | Risk scoring, predictive incident detection, dispatch optimization |
+In high-crime, low-response areas like Soweto, people often face life-threatening danger with **no reliable way to call for help**. SafeHood turns your smartphone into a **digital panic button**, especially for **women and children walking alone, trapped in unsafe homes, or under threat**.
 
 ---
 
-## 🎯 Key Features
+## 💡 Core Features
 
-### 🔕 Silent Panic Trigger
-- Triple-press power button to send an emergency alert
-- Background listener using native modules
-
-### 🧭 Real-Time GPS Tracking
-- Send your location to trusted contacts or SafeHood command center
-- View approaching responder location on map
-
-### 🗣️ Voice & Photo Evidence Capture
-- Capture voice notes or images as evidence when unsafe
-- Secure upload to encrypted AWS S3 bucket
-
-### 🧵 Alert Dispatch Queue
-- Alerts routed to community responders or private security firms
-- Includes ETA, escalation tier, and chat
-
-### 📡 Offline SMS Backup
-- Panic SMS sent with GPS when offline
-- Delivered via Twilio/Africa’s Talking
-
-### 👥 Community Responder System
-- Verified volunteers/patrol groups can respond based on proximity
-- Includes trust ratings and feedback logs
+| Feature | Description |
+|--------|-------------|
+| 🔕 **Silent SOS** | Triple-press power button to silently trigger an emergency |
+| 📡 **Live GPS Streaming** | Real-time location shared with community patrols |
+| 🗣️ **Voice & Photo Capture** | Record audio or image evidence during or after incidents |
+| 📶 **Offline SMS Backup** | Alert sent via SMS when internet is unavailable |
+| 👥 **Community Responders** | Trusted neighbors, patrols, or private security firms receive alerts |
+| 💬 **Dispatcher Chat** | Users can optionally chat with responders (via app or SMS) |
+| 🔒 **Tamper-Proof Reporting** | Evidence stored securely and signed to ensure integrity |
 
 ---
 
-## 🔐 Security & Compliance Highlights
+## 🧠 Tech Stack Overview
 
-- 🔒 AES-256 encrypted user data (at-rest & in-transit)
-- ✅ JWT + Role-Based Access Control (RBAC)
-- 📝 Full audit logs for all API interactions
-- 🛡️ GDPR & POPIA-aligned user data policies
-- 🧾 Incident reports are digitally signed and tamper-proof
+| Layer | Tech | Purpose |
+|-------|------|---------|
+| Frontend | React Native (Bare Workflow) | Native access to device hardware (power button, GPS, media) |
+| Backend | Django + PostgreSQL | Auth, alerts, user roles, audit logs |
+| Real-Time | Django Channels + Redis | WebSocket system for alerts and patrol dispatch |
+| Media | S3 via Django-Storages | Secure storage of sensitive files |
+| Offline Comm | Africa’s Talking / Twilio | Panic via SMS or automated voice |
+| DevOps | Docker + GitHub Actions + AWS/Render | CI/CD pipelines and cloud-ready deployment |
+| AI Layer (future) | Python ML + REST API | Risk scoring, predictive patrols, NLP triggers |
 
 ---
 
-## 🧪 Folder Structure
+## 📁 Folder Structure
 
-```
-
+```bash
 SafeHood/
-├── mobile-app/              # React Native mobile app
-│   ├── android/             # Native Android configuration
-│   ├── ios/                 # Native iOS configuration
-│   ├── src/                 # Screens, components, services
-│   └── App.js
-├── backend-api/             # Django backend
-│   ├── alerts/              # Alert models, views, serializers
-│   ├── users/               # User & auth models
-│   ├── dispatch/            # Real-time dispatch logic
-│   ├── media/               # Uploads and evidence handling
-│   └── settings/
-├── docker-compose.yml       # Multi-service container orchestration
-├── README.md
-└── .github/workflows/       # GitHub Actions CI/CD
+├── backend-api/                # Django backend
+│   ├── alerts/                # Models and views for incidents
+│   ├── dispatch/              # Responder assignment and live tracking
+│   ├── media/                 # Handling uploads and evidence
+│   ├── settings/              # Django settings modules
+│   └── users/                 # Auth, roles, permissions
+│
+├── mobile-app/                # React Native app
+│   ├── android/               # Android platform config
+│   ├── ios/                   # iOS platform config
+│   ├── src/                   
+│   │   ├── components/        # Shared UI components
+│   │   ├── screens/           # App screens (SOS, home, alerts, profile)
+│   │   └── services/          # GPS, media, notification utilities
+│   └── App.js                 # Entry point with SafeHood branding
+│
+├── docker-compose.yml         # Development & test container stack
+├── .github/workflows/         # GitHub Actions CI/CD pipelines
+└── README.md
+````
 
+---
+
+## 🛠️ Dev Setup Instructions
+
+### 🧱 Prerequisites
+
+* Node.js & Yarn
+* Python 3.11+
+* Docker & Docker Compose
+* Android Studio or Xcode
+
+### 🚀 Quickstart (Dev Mode)
+
+```bash
+# 1. Clone project
+git clone https://github.com/your-org/safehood.git
+cd safehood
+
+# 2. Start backend
+docker-compose up --build
+
+# 3. Install mobile deps
+cd mobile-app
+yarn install
+
+# 4. Run the app
+npx react-native run-android   # or run-ios
 ```
 
 ---
 
-## 🚀 Deployment Stack
+## 🐳 Docker Usage
 
-| Environment | Tool | Description |
-|-------------|------|-------------|
-| Dev | Docker Compose | Local containers for backend, DB, Redis |
-| Staging | Render or AWS EC2 | Hosted API + DB + WebSocket via NGINX |
-| Prod | AWS ECS/Fargate | Scalable container orchestration |
-| CI/CD | GitHub Actions | Auto-deploy on push, with pre-checks |
-| Logs | Sentry + PostgreSQL | Track bugs and incidents in real-time |
+The app ships with full containerization for backend services:
 
----
+| Service          | Port   | Description            |
+| ---------------- | ------ | ---------------------- |
+| Django Backend   | `8000` | REST & WebSocket API   |
+| PostgreSQL       | `5432` | Persistent DB          |
+| Redis            | `6379` | WebSocket worker queue |
+| (Optional) NGINX | `80`   | Reverse proxy for prod |
 
-## 🤖 AI Roadmap (Future Scope)
-
-- 📊 **Risk Scoring** based on historical and user-reported data  
-- 🔄 **Predictive Patrol Routing** via graph algorithms  
-- 📍 **Incident Heatmap Visualization** for township authorities  
-- 🧠 **NLP for Voice Commands**: “Help me,” “Send alert,” etc.
+```bash
+# Start everything
+docker-compose up
+```
 
 ---
 
-## 🧩 Integration Possibilities
+## 🧪 Deployment Strategy
 
-SafeHood can plug into:
-- 🚓 Private Security Systems (ADT, Chubb) via REST
-- 🏥 Medical Assistance APIs (ambulance dispatch)
-- 🛑 Local Law Enforcement Dashboards
-- 📞 Telecoms for SIM-agnostic SMS relays
-
----
-
-## 💡 Pitch Narrative
-
-Imagine a mother walking home at dusk in Soweto. Three taps on her phone’s power button quietly alerts her loved ones, nearby SafeHood responders, and even dispatches community volunteers. Her phone records a voice note. Her location is live-tracked. A digital eye watches—and acts. **SafeHood is not just an app. It’s a shield. A system. A statement.**
+| Environment | Platform          | Purpose                                 |
+| ----------- | ----------------- | --------------------------------------- |
+| Dev         | Docker Compose    | Local containerized development         |
+| Staging     | Render / AWS EC2  | Public-facing pilot instance            |
+| Prod        | AWS ECS / Fargate | Full scale deployment with autoscaling  |
+| CI/CD       | GitHub Actions    | Build, test, and deploy pipelines       |
+| Monitoring  | Sentry + Logs     | Bug/error tracking for mobile + backend |
 
 ---
 
-## ✍️ Authors & Contributors
+## 🔐 Security & GBV-Aware Architecture
 
-- **Gift Ndlala** – Technical Lead & Architect  
-- **Open to NGO/Government/Private Collaboration**  
-- Contact:
+* AES-256 encryption for all media and data at rest
+* HTTPS + JWT for user auth and secure session flow
+* Role-based responder system to avoid misuse
+* Privacy-first SMS fallback (no content shown)
+* Enforced audit logging for all alert handling
+
+> SafeHood is POPIA/GDPR-aligned and puts **victim dignity and data sovereignty first**.
+
+---
+
+## 🌍 Future AI Capabilities
+
+* 🧠 Risk classification based on historic data and context
+* 🚨 Predictive dispatch (heatmap-driven patrols)
+* 🗣️ Voice recognition for hands-free SOS (“Help me”, “Save me”)
+* 📊 Community safety dashboards for local leaders
+
+---
+
+## 🤝 Integrations
+
+* ADT/Chubb Private Security APIs (REST)
+* Local SAPS Dispatch Systems (Webhook)
+* Emergency Medical Services (e.g., Netcare)
+* Telecoms (for no-data SMS relay partnerships)
+
+---
+
+## 💬 Pitch Summary (For Stakeholders)
+
+> A girl walking home in Alexandra taps her power button three times. In 3 seconds, her GPS is sent to local SafeHood responders, a voice clip uploads automatically, and her family receives a ping. Whether or not she has airtime, whether or not she can speak — **SafeHood hears her**.
+>
+> This is not just an app. It’s a **resistance tool** against violence, a **neighborhood watch system in your pocket**, and a **lifeline** for our most vulnerable. Built by township-born engineers. Designed to protect our people.
+>
+> **We are done watching. SafeHood is here to act.**
+
+---
+
+## ✍️ Contributors
+
+| Name            | Role                            |
+| --------------- | ------------------------------- |
+| **Gift Ndlala** | Tech Architect, Developer, Idea Founder      |
+
+
+Open to NGO, corporate, or civic partnerships.
 
 ---
 
 ## 📜 License
 
-This project is licensed under MIT. Feel free to fork, contribute, or partner—especially for non-profit and social justice causes.
+This project is MIT Licensed. Free to use, fork, remix — especially in humanitarian contexts.
 
 ---
 
-## 📎 Supporting Documents
+## 📎 Supporting Docs (WIP)
 
-- System Architecture Diagram (coming soon)  
-- Risk Assessment Protocol  
-- GBV Partner Outreach Plan  
-- Research: Township Safety Trends (2023–2025)
+* System Architecture Diagram
+* GBV Responder Protocols
+* Safety Impact Metrics
+* NGO/Government Partner Deck
+
+---
+
+
