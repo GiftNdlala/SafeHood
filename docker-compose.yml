@@ -6,13 +6,15 @@ services:
     build: ./backend-api
     ports:
       - "8000:8000"
+    env_file:
+      - ./backend-api/.env.example
     environment:
-      - DEBUG=True
       - DATABASE_URL=postgresql://postgres:password@db:5432/safehood
-      - REDIS_URL=redis://redis:6379/0
     depends_on:
-      - db
-      - redis
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
     volumes:
       - ./backend-api:/app
     networks:
@@ -31,6 +33,11 @@ services:
       - "5432:5432"
     networks:
       - safehood-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d safehood"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
   # Redis for WebSocket and caching
   redis:
@@ -41,6 +48,11 @@ services:
       - redis_data:/data
     networks:
       - safehood-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 2s
+      retries: 10
 
   # Nginx reverse proxy (for production)
   nginx:
@@ -51,7 +63,8 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
     depends_on:
-      - backend
+      backend:
+        condition: service_started
     networks:
       - safehood-network
     profiles:
